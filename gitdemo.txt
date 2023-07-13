@@ -1,0 +1,565 @@
+codeshare.io
+
+-----------------------------
+Git -- To track changes in your repo
+
+C:\Users\Pankaj Chaudhari\gitDemo>git config --global user.name "Pankaj"
+C:\Users\Pankaj Chaudhari\gitDemo>git config --global user.email "pankajchaudhari6198@gmail.com"
+
+C:\Users\Pankaj Chaudhari\gitDemo>git config --global user.email
+
+C:\Users\Pankaj Chaudhari\gitDemo>mkdir gitDemo
+
+C:\Users\Pankaj Chaudhari\gitDemo>cd gitDemo
+
+C:\Users\Pankaj Chaudhari\gitDemo>git init   // To convert a repo into git repo
+
+
+C:\Users\Pankaj Chaudhari\gitDemo>git status  // Tell you status(ie.added to stagging or not or changes/file commited or not ) of changes happened in 											    git repo like 
+		On branch master
+
+		No commits yet
+
+		Untracked files:
+		  (use "git add <file>..." to include in what will be committed)        Sum.java
+
+		nothing added to commit but untracked files present (use "git add" to track)
+
+
+	1. Track the file 
+		
+	2. then commit
+
+C:\Users\Pankaj Chaudhari\gitDemo>git add Sum.java  // To enable tracking and now, sum.java is available in staging area
+
+C:\Users\Pankaj Chaudhari\gitDemo>git status
+	On branch master
+
+	No commits yet
+
+	Changes to be committed:
+	  (use "git rm --cached <file>..." to unstage)
+			new file:   Sum.java
+
+
+	Staging area: It holds the changes before commit.
+				  git add filename is used to put file in staging area.
+				  So that, only certain files/changes can be commited instead of all
+				  
+				  
+				  
+C:\Users\Pankaj Chaudhari\gitDemo>git commit -m "initial commit"
+
+	[master (root-commit) 7a8b67e] initial commit
+	 1 file changed, 12 insertions(+)
+	 create mode 100644 Sum.java
+ 
+      commit will take file from staging and commit it /m message(to show what changes you have added)
+	  
+
+C:\Users\Pankaj Chaudhari\gitDemo>git log
+
+	commit 7a8b67e81ac643a67b246d5606a3600372ab719e (HEAD -> master)
+	Author: Pankaj <pankajchaudhari6198@gmail.com>
+	Date:   Thu Jul 13 19:12:37 2023 +0530
+
+		initial commit
+	
+	
+			7a8b67e81ac643a67b246d5606a3600372ab719e : hashcode for each commit
+			git log : to check all previous commits
+		
+C:\Users\Pankaj Chaudhari\gitDemo>git status
+
+	On branch master
+	Changes not staged for commit:
+	  (use "git add <file>..." to update what will be committed)
+	  (use "git restore <file>..." to discard changes in working directory)
+			modified:   Sum.java
+
+	no changes added to commit (use "git add" and/or "git commit -a")
+
+
+C:\Users\Pankaj Chaudhari\gitDemo>git status
+
+	On branch master
+	Changes not staged for commit:
+	  (use "git add <file>..." to update what will be committed)
+	  (use "git restore <file>..." to discard changes in working directory)
+			modified:   Sum.java
+
+	Untracked files:
+	  (use "git add <file>..." to include in what will be committed)
+			Diff.java
+
+	no changes added to commit (use "git add" and/or "git commit -a")
+		
+		
+C:\Users\Pankaj Chaudhari\gitDemo>git add Diff.java         // Diff.java added to staging area
+
+C:\Users\Pankaj Chaudhari\gitDemo>git status
+
+	On branch master
+	Changes to be committed:
+	  (use "git restore --staged <file>..." to unstage)
+			new file:   Diff.java
+
+	Changes not staged for commit:
+	  (use "git add <file>..." to update what will be committed)
+	  (use "git restore <file>..." to discard changes in working directory)
+			modified:   Sum.java
+	
+
+		
+		If you commit now it will commit Diff.java not the modified Sum.java.
+
+		
+C:\Users\Pankaj Chaudhari\gitDemo>git commit -m "adding Diff.java"     
+     
+	[master 08d0090] adding Diff.java
+	 1 file changed, 4 insertions(+)
+	 create mode 100644 Diff.java		
+		
+		
+C:\Users\Pankaj Chaudhari\gitDemo>git log
+
+	commit 08d009072d421a75f9917078bbd9019972ff5d19 (HEAD -> master)
+	Author: Pankaj <pankajchaudhari6198@gmail.com>
+	Date:   Thu Jul 13 19:28:32 2023 +0530
+
+		adding Diff.java
+
+	commit 7a8b67e81ac643a67b246d5606a3600372ab719e
+	Author: Pankaj <pankajchaudhari6198@gmail.com>
+	Date:   Thu Jul 13 19:12:37 2023 +0530
+
+		initial commit		
+		
+		
+	It has previous two commits , Note : the modified Sum.java has not be commited yet.
+	1. 7a8b67e81ac643a67b246d5606a3600372ab719e : initial commit of Sum.java
+	2. 08d009072d421a75f9917078bbd9019972ff5d19 : adding Diff.java
+		
+		
+		
+		
+C:\Users\Pankaj Chaudhari\gitDemo>git status
+
+	On branch master
+	Changes not staged for commit:
+	  (use "git add <file>..." to update what will be committed)
+	  (use "git restore <file>..." to discard changes in working directory)
+			modified:   Sum.java
+
+	no changes added to commit (use "git add" and/or "git commit -a")
+	
+	
+			// Sum.java is modified but not commited
+			
+
+
+C:\Users\Pankaj Chaudhari\gitDemo>git add .
+
+    // All the file or changes from git repo will be in staging
+	
+
+C:\Users\Pankaj Chaudhari\gitDemo>git commit -m "Added messages in Sum.java"
+
+	[master 5476885] Added messages in Sum.java
+	 1 file changed, 1 insertion(+), 1 deletion(-)
+			
+			
+			/// Now it will commit all changes in the repo
+			
+			
+C:\Users\Pankaj Chaudhari\gitDemo>git log        // gives history of your commits
+
+	commit 547688535bbc6529d91cf804b91c1b04de78bfcb (HEAD -> master)
+	Author: Pankaj <pankajchaudhari6198@gmail.com>
+	Date:   Thu Jul 13 19:36:39 2023 +0530
+
+		Added messages in Sum.java
+
+	commit 08d009072d421a75f9917078bbd9019972ff5d19
+	Author: Pankaj <pankajchaudhari6198@gmail.com>
+	Date:   Thu Jul 13 19:28:32 2023 +0530
+
+		adding Diff.java
+
+	commit 7a8b67e81ac643a67b246d5606a3600372ab719e
+	Author: Pankaj <pankajchaudhari6198@gmail.com>
+	Date:   Thu Jul 13 19:12:37 2023 +0530
+
+		initial commit
+
+
+
+# How to travel in time : checkout is used to travel from different branchs
+
+						   master (current)
+						            |
+			---------------------------------------------------	
+			|						|						|
+			|						|						|
+			Branch1					Branch2					Branch3	
+			|						|							
+
+
+
+## Switch to 7a8b67e81ac643a67b246d5606a3600372ab719e initial commit  
+	# Will result to deletion of Diff.java
+
+C:\Users\Pankaj Chaudhari\gitDemo>git checkout 7a8b67e81ac643a67b246d5606a3600372ab719e
+
+		Note: switching to '7a8b67e81ac643a67b246d5606a3600372ab719e'.
+
+		You are in 'detached HEAD' state. You can look around, make experimental
+		changes and commit them, and you can discard any commits you make in this
+		state without impacting any branches by switching back to a branch.
+
+		If you want to create a new branch to retain commits you create, you may
+		do so (now or later) by using -c with the switch command. Example:
+
+		  git switch -c <new-branch-name>
+
+		Or undo this operation with:
+
+		  git switch -
+
+		Turn off this advice by setting config variable advice.detachedHead to false
+
+		HEAD is now at 7a8b67e initial commit
+
+
+### Comming/Rolling back to the present 
+   # Result Diff.java created
+   
+C:\Users\Pankaj Chaudhari\gitDemo>git checkout master
+
+	Previous HEAD position was 7a8b67e initial commit
+	Switched to branch 'master'
+	
+## To see branchs
+	
+C:\Users\Pankaj Chaudhari\gitDemo>git branch
+	* master
+	
+ ## Create dev branch 
+ 
+C:\Users\Pankaj Chaudhari\gitDemo>git branch dev
+
+C:\Users\Pankaj Chaudhari\gitDemo>git branch           // Still in master 
+  dev
+* master
+
+
+###### To to dev branch
+
+C:\Users\Pankaj Chaudhari\gitDemo>git checkout dev
+
+	Switched to branch 'dev'
+
+C:\Users\Pankaj Chaudhari\gitDemo>git branch                    // Inside dev branch
+* dev
+  master
+	
+	
+---------------------------------------------------------------------------------------------------------------
+Inside dev branch --> pankaj/multiply
+# Shortcut to create branch and jump into it
+	
+C:\Users\Pankaj Chaudhari\gitDemo>git checkout -b pankaj/multiply
+
+	Switched to a new branch 'pankaj/multiply'
+
+	C:\Users\Pankaj Chaudhari\gitDemo>git branch
+	  dev
+	  master
+	* pankaj/multiply
+
+# After creating multiply.java
+
+C:\Users\Pankaj Chaudhari\gitDemo>git status
+	On branch pankaj/multiply
+	Untracked files:
+	  (use "git add <file>..." to include in what will be committed)
+			multiply.java
+
+	nothing added to commit but untracked files present (use "git add" to track)
+	
+# Add multiply.java in staging	
+C:\Users\Pankaj Chaudhari\gitDemo>git add multiply.java	
+
+# git commit
+C:\Users\Pankaj Chaudhari\gitDemo>git commit -m "added multiply.java"
+	[pankaj/multiply 71b39f7] added multiply.java
+	 1 file changed, 11 insertions(+)
+	 create mode 100644 multiply.java
+	 
+############################ Moving in dev to merge the changes of pankaj/multiply after review
+
+# Moving to dev branch : This will remove multiply.java as dev branch doent contain this file.. only pankaj/multiply has it
+C:\Users\Pankaj Chaudhari\gitDemo>git checkout dev
+	Switched to branch 'dev'
+	 
+# Checking log for dev branch : Note : multiply will not show in dev branch as it is added in pankaj/multiply branch
+C:\Users\Pankaj Chaudhari\gitDemo>git log
+	commit 547688535bbc6529d91cf804b91c1b04de78bfcb (HEAD -> dev, master)
+	Author: Pankaj <pankajchaudhari6198@gmail.com>
+	Date:   Thu Jul 13 19:36:39 2023 +0530
+
+		Added messages in Sum.java
+
+	commit 08d009072d421a75f9917078bbd9019972ff5d19
+	Author: Pankaj <pankajchaudhari6198@gmail.com>
+	Date:   Thu Jul 13 19:28:32 2023 +0530
+
+		adding Diff.java
+
+	commit 7a8b67e81ac643a67b246d5606a3600372ab719e
+	Author: Pankaj <pankajchaudhari6198@gmail.com>
+	Date:   Thu Jul 13 19:12:37 2023 +0530
+
+		initial commit	 
+		
+
+C:\Users\Pankaj Chaudhari\gitDemo>git branch    // In dev branch
+* dev
+  master
+  pankaj/multiply	
+	 			
+		
+# Copy multiply.java from pankaj/multiply to dev branch
+## First, come in dev branch then merge 
+		# multiply.java will be added
+
+C:\Users\Pankaj Chaudhari\gitDemo>git merge pankaj/multiply
+	Updating 5476885..71b39f7
+	Fast-forward
+	 multiply.java | 11 +++++++++++
+	 1 file changed, 11 insertions(+)
+	 create mode 100644 multiply.java
+
+# git log for dev 
+C:\Users\Pankaj Chaudhari\gitDemo>git log
+	commit 71b39f766f1f0266f9cdffbee4cd2553f823e095 (HEAD -> dev, pankaj/multiply)
+	Author: Pankaj <pankajchaudhari6198@gmail.com>
+	Date:   Thu Jul 13 20:04:43 2023 +0530
+
+		added multiply.java
+
+	commit 547688535bbc6529d91cf804b91c1b04de78bfcb (master)
+	Author: Pankaj <pankajchaudhari6198@gmail.com>
+	Date:   Thu Jul 13 19:36:39 2023 +0530
+
+		Added messages in Sum.java
+
+	commit 08d009072d421a75f9917078bbd9019972ff5d19
+	Author: Pankaj <pankajchaudhari6198@gmail.com>
+	Date:   Thu Jul 13 19:28:32 2023 +0530
+
+		adding Diff.java
+
+	commit 7a8b67e81ac643a67b246d5606a3600372ab719e
+	Author: Pankaj <pankajchaudhari6198@gmail.com>
+	Date:   Thu Jul 13 19:12:37 2023 +0530
+
+		initial commit
+		
+		
+-----------------------------------------------------
+
+# Switch to master // There is nothing like multiply in master  // there wont be any multiply.java file
+
+C:\Users\Pankaj Chaudhari\gitDemo>git checkout master
+Switched to branch 'master'
+
+C:\Users\Pankaj Chaudhari\gitDemo>git branch
+  dev
+* master
+  pankaj/multiply
+
+C:\Users\Pankaj Chaudhari\gitDemo>
+
+
+#git log  from master
+
+C:\Users\Pankaj Chaudhari\gitDemo>git log
+	commit 547688535bbc6529d91cf804b91c1b04de78bfcb (HEAD -> master)
+	Author: Pankaj <pankajchaudhari6198@gmail.com>
+	Date:   Thu Jul 13 19:36:39 2023 +0530
+
+		Added messages in Sum.java
+
+	commit 08d009072d421a75f9917078bbd9019972ff5d19
+	Author: Pankaj <pankajchaudhari6198@gmail.com>
+	Date:   Thu Jul 13 19:28:32 2023 +0530
+
+		adding Diff.java
+
+	commit 7a8b67e81ac643a67b246d5606a3600372ab719e
+	Author: Pankaj <pankajchaudhari6198@gmail.com>
+	Date:   Thu Jul 13 19:12:37 2023 +0530
+
+		initial commit
+
+
+
+
+
+############################ Moving in master to merge the changes dev after feature(multiply.java) works fine
+
+
+# Come in master (git checkout master )
+# then merge dev as we have already merged the changes of pankaj/multiply in dev 
+
+C:\Users\Pankaj Chaudhari\gitDemo>git merge dev
+	Updating 5476885..71b39f7
+	Fast-forward
+	 multiply.java | 11 +++++++++++
+	 1 file changed, 11 insertions(+)
+	 create mode 100644 multiply.java
+
+    // multiply.java will be added / show in the folder
+
+C:\Users\Pankaj Chaudhari\gitDemo>git log
+
+	commit 71b39f766f1f0266f9cdffbee4cd2553f823e095 (HEAD -> master,
+	 pankaj/multiply, dev)
+	Author: Pankaj <pankajchaudhari6198@gmail.com>
+	Date:   Thu Jul 13 20:04:43 2023 +0530
+
+		added multiply.java
+
+	commit 547688535bbc6529d91cf804b91c1b04de78bfcb
+	Author: Pankaj <pankajchaudhari6198@gmail.com>
+	Date:   Thu Jul 13 19:36:39 2023 +0530
+
+		Added messages in Sum.java
+
+	commit 08d009072d421a75f9917078bbd9019972ff5d19
+	Author: Pankaj <pankajchaudhari6198@gmail.com>
+	Date:   Thu Jul 13 19:28:32 2023 +0530
+
+		adding Diff.java
+
+	commit 7a8b67e81ac643a67b246d5606a3600372ab719e
+	Author: Pankaj <pankajchaudhari6198@gmail.com>
+	Date:   Thu Jul 13 19:12:37 2023 +0530
+
+		initial commit
+
+
+-----------------------------------------------------------------------------------------
+
+# .gitignore file : If u want some files/ sensetive file that doesnt need to tracked by git 
+					then u can put the file name ex. secretkey.txt
+					
+	# create secretkey.txt 
+	
+Ways to create .gitignore file
+	1 . directly create a file called .gitignore
+	2 Via cmd : touch .gitignore  
+	
+C:\Users\Pankaj Chaudhari\gitDemo>git status
+		On branch master
+		Untracked files:
+		  (use "git add <file>..." to include in what will be committed)
+				.gitignore
+				secretkey.txt
+
+		nothing added to commit but untracked files present (use "git add" to track)
+		
+	## Now, Add filename(secretkey.txt) in .gitignore file
+	
+C:\Users\Pankaj Chaudhari\gitDemo>git status
+	On branch master
+	Untracked files:
+	  (use "git add <file>..." to include in what will be committed)
+			.gitignore
+
+	nothing added to commit but untracked files present (use "git add" to track)
+	
+########### You can hide .gitignore file also	
+##### Note: You can add .gitignore filename inside .gitignore
+
+
+C:\Users\Pankaj Chaudhari\gitDemo>git status
+	On branch master
+	nothing to commit, working tree clean
+
+
+
+============================================================================================================
+
+Github
+
+
+C:\Users\Pankaj Chaudhari\gitDemo>git remote add origin https://github.com/Pankaj6198/gitDemo.git   // origin : giving name to remote
+
+C:\Users\Pankaj Chaudhari\gitDemo>git remote -v
+
+	origin  https://github.com/Pankaj6198/gitDemo.git (fetch)
+	origin  https://github.com/Pankaj6198/gitDemo.git (push)
+
+C:\Users\Pankaj Chaudhari\gitDemo>git remote -v
+origin  https://github.com/Pankaj6198/gitDemo.git (fetch)
+origin  https://github.com/Pankaj6198/gitDemo.git (push)
+
+C:\Users\Pankaj Chaudhari\gitDemo>git branch -M main                       /// -M Just pushing the master branch
+
+C:\Users\Pankaj Chaudhari\gitDemo>git push -u origin main
+
+	info: please complete authentication in your browser...
+	Enumerating objects: 12, done.
+	Counting objects: 100% (12/12), done.
+	Delta compression using up to 8 threads
+	Compressing objects: 100% (10/10), done.
+	Writing objects: 100% (12/12), 1.14 KiB | 583.00 KiB/s, done.
+	Total 12 (delta 3), reused 0 (delta 0), pack-reused 0
+	remote: Resolving deltas: 100% (3/3), done.
+	To https://github.com/Pankaj6198/gitDemo.git
+	 * [new branch]      main -> main
+	branch 'main' set up to track 'origin/main'.
+
+
+C:\Users\Pankaj Chaudhari\gitDemo>git commit -m "Added implementation of Diff.java"
+	[main b2b3d99] Added implementation of Diff.java
+	 1 file changed, 7 insertions(+), 1 deletion(-)
+
+C:\Users\Pankaj Chaudhari\gitDemo>git push
+
+	Enumerating objects: 5, done.
+	Counting objects: 100% (5/5), done.
+	Delta compression using up to 8 threads
+	Compressing objects: 100% (3/3), done.
+	Writing objects: 100% (3/3), 442 bytes | 442.00 KiB/s, done.
+	Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+	To https://github.com/Pankaj6198/gitDemo.git
+	   71b39f7..b2b3d99  main -> main
+	   
+	   
+-============================================================================================
+
+### Push dev branch	
+
+ C:\Users\Pankaj Chaudhari\gitDemo>git checkout dev
+ 
+           Switched to branch 'dev'
+
+C:\Users\Pankaj Chaudhari\gitDemo>git push -u origin dev
+
+	Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+	remote:
+	remote: Create a pull request for 'dev' on GitHub by visiting:
+	remote:      https://github.com/Pankaj6198/gitDemo/pull/new/dev
+	remote:
+	To https://github.com/Pankaj6198/gitDemo.git
+	 * [new branch]      dev -> dev
+	branch 'dev' set up to track 'origin/dev'.
+	   
+	   
+	   
+	   
+	   
+	  
